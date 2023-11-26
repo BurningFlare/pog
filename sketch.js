@@ -21,7 +21,7 @@ function setup() {
     createCanvas(width, height);
     player = new Player(createVector(200, 200), []);
     camera = new Camera(0, 0);
-    sword = new Sword("Excalibur", 1.5, 21, 36, player);
+    sword = new Sword("Excalibur", 1.5, 21, 36, player, 10);
 }
 
 var spriteTestMode = false;
@@ -46,26 +46,17 @@ function draw() {
     // PHYSICS UPDATES
     // check player collision with walls
     player.update();
-    sword.update();
     
     // update camera
     camera.update(player.position.x, player.position.y);
     camera.draw();
     
-
     // DRAWING UPDATES
-    // draw player
     player.drawEntity();
-
-    // draw weapons
-    sword.drawAttack();
-
-    // draw map
+    
+    sword.update();
+    
     drawMap(0);
-
-    // drawPlayer
-    //mouseDoSomething(pressMouse);
-    // rect(x, y, playerSize, playerSize);
 
     clicked = false;
 }

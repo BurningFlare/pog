@@ -2,8 +2,8 @@ class Player extends Entity {
 
     static PLAYER_COLOR = [255, 0, 255, 0];
     static PLAYER_ALT_COLOR = [45, 5, 1, 0];
-    static PLAYER_ACCEL = 1;
-    static PLAYER_SIZE = 25;
+    static PLAYER_ACCEL = 1.5;
+    static PLAYER_SIZE = 35;
     static PLAYER_HP = 100;
 
     constructor(position, inventory) {
@@ -41,10 +41,10 @@ class Player extends Entity {
 
     updateFacingDirection() {
         if (getMouseOffset(this.position.x, 0).x < width/2) {
-            this.facingDirection = LEFT;
+            this.facingDirection = -1;
         }
         else {
-            this.facingDirection = RIGHT;
+            this.facingDirection = 1;
         }
     }
 
@@ -74,8 +74,7 @@ class Player extends Entity {
 
     drawEntity() {
         fill(255, 255, 255);
-    //    ellipse(this.position.x+5,this.position.y+20,3,3);
-    //    ellipse(this.position.x,this.position.y,3,3);
+
         rect (this.position.x, this.position.y, this.size.x, this.size.y);
     }
 }

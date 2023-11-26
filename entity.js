@@ -1,5 +1,5 @@
 class Entity {
-    static FRICTION = 0.9;
+    static FRICTION = 0.83;
 
     constructor(position, health, name, size, weapon) {
         this.position = position;
@@ -9,7 +9,7 @@ class Entity {
         this.name = name;
         this.size = size;
         this.weapon = weapon;
-        this.facingDirection = LEFT;
+        this.facingDirection = -1; // -1 = LEFFT, 1 = RIGHT
     }
 
     static checkCollision(level, position, size) {

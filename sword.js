@@ -1,6 +1,6 @@
 class Sword extends Weapon {
-    constructor(name, damage, range, cooldown, user) {
-        super(name, damage, range, cooldown, user);
+    constructor(name, damage, range, cooldown, user, animationTotalFrames) {
+        super(name, damage, range, cooldown, user, animationTotalFrames);
     }
 
     attack(direction, position) {
@@ -9,18 +9,10 @@ class Sword extends Weapon {
     }
 
     drawAttack() {
-        // draws the weapon
-        push();
-        translate(player.position.x, player.position.y);
-        rotate(player.direction);
-
-        
-
-        pop();
+        // super.drawAttack();
     }
 
     update() {
-        // updates the weapon
-        this.cooldown -= 1;
+        super.update();
     }
 }
